@@ -2,6 +2,16 @@ import dash
 import dash_core_components as dcc
 import dash_html_components as html
 import plotly.graph_objs as go
+import pandas as pd
+import numpy as np
+import plotly.express as px
+import plotly.figure_factory as ff
+import plotly.graph_objects as go
+
+customers=pd.read_csv('customers.csv')
+orders=pd.read_csv('orders.csv')
+products=pd.read_csv('products.csv')
+sales=pd.read_csv('sales.csv')
 
 ########### Define your variables
 # beers=['Chesapeake Stout', 'Snake Dog IPA', 'Imperial Porter', 'Double Dog IPA']
@@ -30,29 +40,28 @@ introText='''Running a business often boils down to two main goals: Maximize pro
             '''
 tools='Python (pandas, matplotlib, scikit-learn), Anaconda, Jupyter Notebook, Git, Github, Scrum'
 
+#barplot of customer age
+age_df = px.data.tips()
+fig = px.histogram(
+    customers, 
+    x = "age",  
+    color = 'gender', 
+    marginal = 'box', #create box and whisker plot
+    hover_data = customers.columns #interactive element
+)
 
-########### Set up the chart
-# bitterness = go.Bar(
-#     x=beers,
-#     y=ibu_values,
-#     name=label1,
-#     marker={'color':color1}
-# )
-# alcohol = go.Bar(
-#     x=beers,
-#     y=abv_values,
-#     name=label2,
-#     marker={'color':color2}
-# )
-
-# beer_data = [bitterness, alcohol]
-# beer_layout = go.Layout(
-#     barmode='group',
-#     title = mytitle
-# )
-
-# beer_fig = go.Figure(data=beer_data, layout=beer_layout)
-
+fig.update_layout(#reconfigure labels
+    title = {
+        'text' : 'Distribution of Customer Age Grouped by Gender',
+        'y':0.95,
+        'x':0.45,
+        'xanchor':'center',
+        'yanchor':'top'
+    },
+    xaxis_title='Customer Age',
+    yaxis_title='Total Number of Customers',
+    legend_title= 'Gender',
+    font=dict(family='monospace', size=15,  color='Black'))
 
 ########### Initiate the app
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
@@ -69,13 +78,17 @@ app.layout = html.Div(children=[
     '''),
     html.P(introText),
     html.Div('Tools'),
-    html.P(tools),
+    html.H3(tools),
     html.Div('Team'),
     html.Div('Methodology'),
     # dcc.Graph(
     #     id='flyingdog',
     #     figure=beer_fig
     # ),
+    dcc.Graph(
+        id="graph1",
+        figure=fig.show()
+    ),
     html.A('Code on Github', href=githublink),
     html.Br(),
     html.A('Data Source', href=sourceurl),
