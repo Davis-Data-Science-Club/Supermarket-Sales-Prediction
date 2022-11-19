@@ -172,10 +172,41 @@ app.title=tabtitle
 app.layout = html.Div(children=[
     #Elements listed from top to bottom of page
     html.Nav([html.Ul([
-        html.Li([html.A('Overview', href="#overview")]),
-        html.Li([html.A('Visualizations', href="#visualizations")]),
-        html.Li([html.A('ML Prediction', href="#machine-learning")])])
-    ]),
+
+        html.Li([html.A('Overview', href="#overview", style={
+        'display': 'block',
+        'color': 'white',
+        'text-align': 'center',
+        'padding': '16px',
+        'text-decoration': 'none'
+        })], style={'float':'left'}),
+
+        html.Li([html.A('Visualizations', href="#visualizations", style={
+        'display': 'block',
+        'color': 'white',
+        'text-align': 'center',
+        'padding': '16px',
+        'text-decoration': 'none'
+        })], style={'float':'left'}),
+
+        html.Li([html.A('ML Prediction', href="#machine-learning", style={
+        'display': 'block',
+        'color': 'white',
+        'text-align': 'center',
+        'padding': '16px',
+        'text-decoration': 'none'
+        })], style={'float':'left'})], 
+
+    style = {
+    'list-style-type': 'none',
+    'margin': 0,
+    'padding': 0,
+    'overflow': 'hidden',
+    'background-color': '#333333'
+    })
+        ]),
+
+
     html.H1(myheading),
     html.Section(id='overview'),
     html.H3(children='''
@@ -191,6 +222,7 @@ app.layout = html.Div(children=[
     #     figure=beer_fig
     # ),
     html.Section(id='visualizations'),
+    html.H3('Visualizations'),
     dcc.Graph(
         id='graph1',
         figure=fig
@@ -212,6 +244,7 @@ app.layout = html.Div(children=[
         figure=fig5
     ),
     html.Section(id='machine-learning'),
+    html.H3('Machine Learning Prediction'),
     html.P(machine_learning),
     html.A('Code on Github', href=githublink),
     html.Br(),
