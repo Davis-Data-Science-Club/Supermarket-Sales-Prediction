@@ -39,6 +39,9 @@ introText='''Running a business often boils down to two main goals: Maximize pro
             products, time analysis, demographics, and more.
             '''
 tools='Python (pandas, matplotlib, scikit-learn), Anaconda, Jupyter Notebook, Git, Github, Scrum'
+machine_learning = 'We predicted ..... Explanation'
+
+
 
 #barplot of order prices over time
 age_df = px.data.tips()
@@ -168,7 +171,13 @@ app.title=tabtitle
 ########### Set up the layout
 app.layout = html.Div(children=[
     #Elements listed from top to bottom of page
+    html.Nav([html.ul([
+        html.li([html.A('Overview', href="#overview")]),
+        html.li([html.A('Visualizations', href="#visualizations")]),
+        html.li([html.A('ML Prediction', href="#machine-learning")])])
+    ]),
     html.H1(myheading),
+    html.Section(id='overview'),
     html.H3(children='''
         Introduction   
     '''),
@@ -181,6 +190,7 @@ app.layout = html.Div(children=[
     #     id='flyingdog',
     #     figure=beer_fig
     # ),
+    html.Section(id='visualizations'),
     dcc.Graph(
         id='graph1',
         figure=fig
@@ -201,6 +211,8 @@ app.layout = html.Div(children=[
         id="graph5",
         figure=fig5
     ),
+    html.Section(id='machine-learning'),
+    html.P(machine_learning)
     html.A('Code on Github', href=githublink),
     html.Br(),
     html.A('Data Source', href=sourceurl),
