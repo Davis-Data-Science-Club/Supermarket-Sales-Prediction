@@ -212,10 +212,10 @@ app.layout = html.Div(children=[
         figure=fig5
     ),
     html.Section(id='machine-learning'),
-    html.P(machine_learning)
+    html.P(machine_learning),
     html.A('Code on Github', href=githublink),
     html.Br(),
-    html.A('Data Source', href=sourceurl),
+    html.A('Data Source', href=sourceurl)
     ]
 )
 
