@@ -73,14 +73,14 @@ app.title=tabtitle
 app.layout = html.Div(children=[
     #Elements listed from top to bottom of page
     html.H1(myheading),
-    html.Div(children='''
+    html.H3(children='''
         Introduction   
     '''),
     html.P(introText),
-    html.Div('Tools'),
-    html.H3(tools),
+    html.H3('Tools'),
+    html.P(tools),
     html.Div('Team'),
-    html.H1('TESTING FOR AUTOMATIC DEPLOYMENT')
+    html.H1('TESTING FOR AUTOMATIC DEPLOYMENT'),
     html.Div('Methodology'),
     # dcc.Graph(
     #     id='flyingdog',
@@ -88,7 +88,7 @@ app.layout = html.Div(children=[
     # ),
     dcc.Graph(
         id="graph1",
-        figure=fig.show()
+        figure=fig
     ),
     html.A('Code on Github', href=githublink),
     html.Br(),
