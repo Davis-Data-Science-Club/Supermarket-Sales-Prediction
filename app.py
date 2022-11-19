@@ -171,10 +171,10 @@ app.title=tabtitle
 ########### Set up the layout
 app.layout = html.Div(children=[
     #Elements listed from top to bottom of page
-    html.Nav([html.ul([
-        html.li([html.A('Overview', href="#overview")]),
-        html.li([html.A('Visualizations', href="#visualizations")]),
-        html.li([html.A('ML Prediction', href="#machine-learning")])])
+    html.Nav([html.Ul([
+        html.Li([html.A('Overview', href="#overview")]),
+        html.Li([html.A('Visualizations', href="#visualizations")]),
+        html.Li([html.A('ML Prediction', href="#machine-learning")])])
     ]),
     html.H1(myheading),
     html.Section(id='overview'),
