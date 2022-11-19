@@ -80,6 +80,7 @@ app.layout = html.Div(children=[
     html.Div('Tools'),
     html.H3(tools),
     html.Div('Team'),
+    html.H1('TESTING FOR AUTOMATIC DEPLOYMENT')
     html.Div('Methodology'),
     # dcc.Graph(
     #     id='flyingdog',
