@@ -202,12 +202,13 @@ app.layout = html.Div(children=[
     'margin': 0,
     'padding': 0,
     'overflow': 'hidden',
-    'background-color': '#333333'
+    'background-color': '#333333',
+    'position' : 'fixed'
     })
         ]),
 
 
-    html.H1(myheading),
+    html.H1(myheading, style = {'margin-top': '30px'}),
     html.Section(id='overview'),
     html.H3(children='''
         Introduction   
@@ -215,8 +216,8 @@ app.layout = html.Div(children=[
     html.P(introText),
     html.H3('Tools'),
     html.P(tools),
-    html.Div('Team'),
-    html.Div('Methodology'),
+    html.H3('Team'),
+    html.H3('Methodology'),
     # dcc.Graph(
     #     id='flyingdog',
     #     figure=beer_fig
