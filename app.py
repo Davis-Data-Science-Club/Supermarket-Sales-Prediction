@@ -203,7 +203,6 @@ app.layout = html.Div(children=[
     'padding': 0,
     'overflow': 'hidden',
     'background-color': '#333333',
-    'position' : 'fixed'
     })
         ]),
 
